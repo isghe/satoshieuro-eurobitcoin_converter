@@ -35,10 +35,6 @@ let gController = null;
 				},
 			};
 
-			self.model ={
-				convert: null
-			};
-
 			self.show = function show() {
 				const aDOMContainer = document.getElementById('container');
 				const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
@@ -46,23 +42,20 @@ let gController = null;
 				const aDOMLink = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent:'github'});
 				aDOMFooter.appendChild (aDOMLink, null, ['footer']);
 
-				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', maxlength:30, size:30,
-					onclick: function (theEvent){
-						self.model.convert = function (theEvent){
-							aDOMValueResult.textContent = 1/(aDOMInputSatoshiEuro.value/100000000);
-						}; 
-					}
-				}, ['input_text']);
+				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', maxlength:30, size:30,}, ['input_text']);
+
 				const aDOMWrapResult = self.util.createElement('div', null, ['wrap-result']);
 				const aDOMLabelResult = self.util.createElement('span', {textContent:'Result:'});
 				const aDOMValueResult = self.util.createElement('span',null, ['result']);
+
 				[aDOMLabelResult, aDOMValueResult].forEach (theDOM => {
 					aDOMWrapResult.appendChild (theDOM);
 				});
+
 				var aDOMButtonConvert = self.util.createElement('div', {
 					textContent: 'Convert',
 					onclick: function (theEvent) {
-						self.model.convert (theEvent);
+						aDOMValueResult.textContent = 1/(aDOMInputSatoshiEuro.value/100000000);
 					}
 				}, ['ig_button', 'normal']);
 				[
