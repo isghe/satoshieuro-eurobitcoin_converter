@@ -44,23 +44,21 @@ let gController = null;
 				const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
 				const aDOMFooter = self.util.createElement('div');
 				const aDOMLink = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent:'github'});
-				aDOMFooter.appendChild (aDOMLink);
+				aDOMFooter.appendChild (aDOMLink, null, ['footer']);
 
-				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', placeholder:'satoshis/euro', maxlength:30, size:30,
+				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', maxlength:30, size:30,
 					onclick: function (theEvent){
 						self.model.convert = function (theEvent){
-							aDOMInputEuroBitcoin.value = 1/(aDOMInputSatoshiEuro.value/100000000);
+							aDOMValueResult.textContent = 1/(aDOMInputSatoshiEuro.value/100000000);
 						}; 
 					}
 				}, ['input_text']);
-				const aDOMInputEuroBitcoin = self.util.createElement('input', {type: 'text', value:'', placeholder:'euros/bitcoin', maxlength:30, size:30,
-					onclick: function (theEvent){
-						self.model.convert = function (theEvent){
-							aDOMInputSatoshiEuro.value = 1/(aDOMInputEuroBitcoin.value/100000000);;
-						}; 
-					}
-				}, ['input_text']);
-
+				const aDOMWrapResult = self.util.createElement('div', null, ['wrap-result']);
+				const aDOMLabelResult = self.util.createElement('span', {textContent:'Result:'});
+				const aDOMValueResult = self.util.createElement('span',null, ['result']);
+				[aDOMLabelResult, aDOMValueResult].forEach (theDOM => {
+					aDOMWrapResult.appendChild (theDOM);
+				});
 				var aDOMButtonConvert = self.util.createElement('div', {
 					textContent: 'Convert',
 					onclick: function (theEvent) {
@@ -68,7 +66,7 @@ let gController = null;
 					}
 				}, ['ig_button', 'normal']);
 				[
-					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMInputEuroBitcoin, aDOMFooter
+					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter
 				].forEach(theDOM => {
 					aDOMContainer.appendChild(theDOM);
 				});
