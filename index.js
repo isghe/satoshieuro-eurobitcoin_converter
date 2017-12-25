@@ -79,6 +79,9 @@ let gController = null;
 			self.show = function show() {
 				const aDOMContainer = document.getElementById('container');
 				const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
+				const aDOMFooter = self.util.createElement('div');
+				const aDOMLink = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent:'github'});
+				aDOMFooter.appendChild (aDOMLink);
 				// <input type="text" value="" placeholder="satoshis/euro">
 				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', placeholder:'satoshis/euro', maxlength:30, size:30,
 					onclick: function (theEvent){
@@ -102,7 +105,7 @@ let gController = null;
 					}
 				}, ['ig_button', 'normal']);
 				[
-					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMInputEuroBitcoin
+					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMInputEuroBitcoin, aDOMFooter
 				].forEach(theDOM => {
 					aDOMContainer.appendChild(theDOM);
 				});
