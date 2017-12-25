@@ -44,15 +44,6 @@ h1, h2{
 	width: 10em;
 }
 
-.normal{
-	/* color: #00ff00; */
-}
-
-.busy{
-	/* color: black; */
-	background: green;
-}
-
 .markets ol li ul, ol li ul li{
 	margin-left: 0;
 	padding-left: 0;
@@ -63,15 +54,19 @@ h1, h2{
 }
 
 .result{
-	margin-left: auto;
-	margin-right: auto;
 	font-family: monospace;
 	white-space: pre;
-	width: 43em
+	font-weight: bold;
 }
 
+.wrap-result{
+	margin: 1em;
+}
 .input_text{
 	text-align: right;
+	margin: 1em;
+}
+.footer{
 	margin: 1em;
 }
 
