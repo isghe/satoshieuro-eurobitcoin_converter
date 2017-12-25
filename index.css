@@ -1,0 +1,76 @@
+/*
+	Lissone (MB) Italy
+	Sat Nov 30 21:48:03 CET 2013
+	Copyright 2013, 2014, 2015, 2016, 2017 Isidoro Ghezzi
+	isidoro.ghezzi@tiscali.it
+	isidoro.ghezzi@icloud.it
+*/
+
+body{
+	background: black;
+	margin: 0;
+	padding: 0;
+	font-size: smaller;
+	font-family: monospace
+}
+h1, h2{
+	color: green;
+	text-align: center;
+}
+.container{
+	margin: 1em;
+	padding: 0;
+	background: black;
+	color: green;
+	text-align: center;
+}
+
+.date{
+	text-align: center;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.ig_button{
+	border-radius:8px;
+	color: #00ff00;
+	border: 1px solid #00ff00;
+	padding: 4px;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	width: 300px
+}
+
+.normal{
+	/* color: #00ff00; */
+}
+
+.busy{
+	/* color: black; */
+	background: green;
+}
+
+.markets ol li ul, ol li ul li{
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.value{
+	padding-left: 1em;
+}
+
+.result{
+	margin-left: auto;
+	margin-right: auto;
+	font-family: monospace;
+	white-space: pre;
+	width: 43em
+}
+
+.input_text{
+	text-align: right;
+}
+
