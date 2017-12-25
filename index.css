@@ -75,3 +75,7 @@ h1, h2{
 	padding: 0.25em;
 }
 
+.bitcoin{
+	font-size: smaller;
+	color: gray;
+}
