@@ -34,9 +34,10 @@ h1, h2{
 }
 
 .ig_button{
+	margin: 1em;
 	border-radius:8px;
-	border: 1px solid black;
-	padding: 4px;
+	border: 2px solid black;
+	padding: 0.25em;
 	margin: auto;
 	text-align: center;
 	font-weight: bold;
@@ -71,5 +72,6 @@ h1, h2{
 
 .input_text{
 	text-align: right;
+	margin: 1em;
 }
 

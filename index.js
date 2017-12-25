@@ -33,56 +33,19 @@ let gController = null;
 					}
 					return ret;
 				},
-				log: function log(theMessage) {
-					console.log(theMessage);
-				},
-				logObject: function logObject(theObject) {
-					this.log(JSON.stringify(theObject));
-				},
-				nodeListToArray: function nodeListToArray(theNodeList) {
-					return Array.prototype.slice.call(theNodeList);
-				},
-				removeSelectorAll(theSelector) {
-					const aDOMResult = document.querySelectorAll(theSelector);
-					this.nodeListToArray(aDOMResult).forEach(theDom => {
-						theDom.parentNode.removeChild(theDom);
-					});
-				}
-			};
-			self.unusedArg = function unusedArg() {
 			};
 
-			self.ajax = {
-				request: function request(method, url, data, handler) {
-					const httpRequest = new XMLHttpRequest();
-					httpRequest.onreadystatechange = function () {
-						handler(httpRequest);
-					};
-					httpRequest.ontimeout = function () {
-						alert('ontimeout: ' + url);
-					};
-					httpRequest.open(method, url);
-					httpRequest.send(data);
-				}
-			};
-			self.buttonDisable = function enableButton(theButton) {
-				theButton.classList.remove('normal');
-				theButton.classList.add('busy');
-			};
-			self.buttonEnable = function enableButton(theButton) {
-				theButton.classList.remove('busy');
-				theButton.classList.add('normal');
-			};
 			self.model ={
 				convert: null
-			}
+			};
+
 			self.show = function show() {
 				const aDOMContainer = document.getElementById('container');
 				const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
 				const aDOMFooter = self.util.createElement('div');
 				const aDOMLink = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent:'github'});
 				aDOMFooter.appendChild (aDOMLink);
-				// <input type="text" value="" placeholder="satoshis/euro">
+
 				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value:'', placeholder:'satoshis/euro', maxlength:30, size:30,
 					onclick: function (theEvent){
 						self.model.convert = function (theEvent){
