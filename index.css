@@ -68,7 +68,9 @@ h1, h2{
 }
 
 .footer{
-	margin: 1em;
+	margin-left: -1em;
+	margin-right: -1em;
+	background: lightgray;
 }
 
 .footer div{
