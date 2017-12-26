@@ -35,6 +35,20 @@ let gController = null;
 				},
 			};
 
+			self.buttonDisable = function enableButton(theButton) {
+				theButton.classList.remove('normal');
+				theButton.classList.add('busy');
+			};
+
+			self.buttonEnable = function enableButton(theButton) {
+				theButton.classList.remove('busy');
+				theButton.classList.add('normal');
+			};
+
+			self.model = {
+				enabled: true
+			};
+
 			self.show = function show() {
 				const aDOMContainer = document.getElementById('container');
 				const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
@@ -61,9 +75,18 @@ let gController = null;
 				const aDOMButtonConvert = self.util.createElement('div', {
 					textContent: 'Convert',
 					onclick: function (theEvent) {
-						aDOMValueResult.textContent = 100000000/aDOMInputSatoshiEuro.value;
+						if (true === self.model.enabled){
+							self.model.enabled = false;
+							self.buttonDisable (aDOMButtonConvert);
+							aDOMValueResult.textContent = 100000000/aDOMInputSatoshiEuro.value;
+							setTimeout ( function (){
+								self.buttonEnable (aDOMButtonConvert);
+								self.model.enabled = true;
+							}, 1000);
+						}
 					}
 				}, ['ig_button', 'normal']);
+
 				[
 					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter
 				].forEach(theDOM => {

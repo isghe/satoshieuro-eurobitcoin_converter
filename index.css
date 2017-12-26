@@ -33,6 +33,16 @@ h1, h2{
 	font-weight: bold;
 }
 
+.normal{
+	color: black;
+	background: white;
+}
+
+.busy{
+	color: black;
+	background: lightgray;
+}
+
 .ig_button{
 	margin: 1em;
 	border-radius:8px;
