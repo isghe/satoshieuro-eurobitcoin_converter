@@ -61,7 +61,7 @@ let gController = null;
 				const aDOMButtonConvert = self.util.createElement('div', {
 					textContent: 'Convert',
 					onclick: function (theEvent) {
-						aDOMValueResult.textContent = 1/(aDOMInputSatoshiEuro.value/100000000);
+						aDOMValueResult.textContent = 100000000/aDOMInputSatoshiEuro.value;
 					}
 				}, ['ig_button', 'normal']);
 				[
