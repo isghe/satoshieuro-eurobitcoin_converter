@@ -56,8 +56,9 @@ let gController = null;
 				const aDOMLink = self.util.createElement('div');
 				const aDOMHref = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent: 'github'});
 				aDOMLink.appendChild(aDOMHref);
-				const aDOMBitcoin = self.util.createElement('div', {textContent: '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD'}, ['bitcoin']);
-				const aDOMQR = self.util.createElement('img', {src: '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD.png', alt: '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD', width: '200', height: '200'});
+				const aAddress = '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD';
+				const aDOMBitcoin = self.util.createElement('div', {textContent: aAddress}, ['bitcoin']);
+				const aDOMQR = self.util.createElement('img', {src: aAddress + '.png', alt: aAddress, width: '200', height: '200'});
 				[aDOMLink, aDOMQR, aDOMBitcoin].forEach(theDOM => {
 					aDOMFooter.appendChild(theDOM);
 				});
