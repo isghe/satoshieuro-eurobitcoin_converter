@@ -51,7 +51,6 @@ let gController = null;
 
 			self.show = function () {
 				const aDOMContainer = document.getElementById('container');
-				// Const aDOMTestDateResult = self.util.createElement('div', {textContent: ''}, ['result']);
 				const aDOMFooter = self.util.createElement('div', null, ['footer']);
 				const aDOMLink = self.util.createElement('div');
 				const aDOMHref = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent: 'github'});
