@@ -17,6 +17,7 @@ let gController = null;
 							ret.push(aProperty);
 						}
 					}
+
 					return ret;
 				},
 				createElement(theTag, theProperties, theClassList) {
@@ -26,11 +27,13 @@ let gController = null;
 							ret[theProperty] = theProperties[theProperty];
 						});
 					}
+
 					if ((typeof undefined !== typeof theClassList) && (theClassList !== null)) {
 						theClassList.forEach(theClass => {
 							ret.classList.add(theClass);
 						});
 					}
+
 					return ret;
 				}
 			};
@@ -50,16 +53,16 @@ let gController = null;
 			};
 
 			self.show = function () {
-				const aDOMContainer = document.getElementById('container');
+				const aDOMContainer = document.querySelector('#container');
 				const aDOMFooter = self.util.createElement('div', null, ['footer']);
 				const aDOMLink = self.util.createElement('div');
 				const aDOMHref = self.util.createElement('a', {href: 'https://github.com/isghe/satoshieuro-eurobitcoin_converter', textContent: 'github'});
-				aDOMLink.appendChild(aDOMHref);
+				aDOMLink.append(aDOMHref);
 				const aAddress = '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD';
 				const aDOMBitcoin = self.util.createElement('div', {textContent: aAddress}, ['bitcoin']);
 				const aDOMQR = self.util.createElement('img', {src: aAddress + '.png', alt: aAddress, width: '200', height: '200'});
 				[aDOMLink, aDOMQR, aDOMBitcoin].forEach(theDOM => {
-					aDOMFooter.appendChild(theDOM);
+					aDOMFooter.append(theDOM);
 				});
 
 				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value: '', maxlength: 30, size: 30}, ['input_text']);
@@ -69,7 +72,7 @@ let gController = null;
 				const aDOMValueResult = self.util.createElement('span', null, ['result']);
 
 				[aDOMLabelResult, aDOMValueResult].forEach(theDOM => {
-					aDOMWrapResult.appendChild(theDOM);
+					aDOMWrapResult.append(theDOM);
 				});
 
 				const aDOMButtonConvert = self.util.createElement('div', {
@@ -90,10 +93,11 @@ let gController = null;
 				[
 					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter
 				].forEach(theDOM => {
-					aDOMContainer.appendChild(theDOM);
+					aDOMContainer.append(theDOM);
 				});
 			};
 		};
+
 		gController = new ClassController(new Date());
 		gController.show();
 	});
