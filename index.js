@@ -10,13 +10,10 @@ let gController = null;
 						alert('assertion failed'); // eslint-disable-line no-alert
 					}
 				},
-				keys(theObject) {
-					return Object.keys(theObject);
-				},
 				createElement(theTag, theProperties, theClassList) {
 					const returnValue = document.createElement(theTag);
 					if ((typeof undefined !== typeof theProperties) && (theProperties !== null)) {
-						this.keys(theProperties).forEach(theProperty => {
+						Object.keys(theProperties).forEach(theProperty => {
 							returnValue[theProperty] = theProperties[theProperty];
 						});
 					}
