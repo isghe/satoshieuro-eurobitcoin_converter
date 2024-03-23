@@ -11,14 +11,7 @@ let gController = null;
 					}
 				},
 				keys(theObject) {
-					const returnValue = [];
-					for (const aProperty in theObject) {
-						if (theObject.hasOwnProperty(aProperty)) { // eslint-disable-line no-prototype-builtins
-							returnValue.push(aProperty);
-						}
-					}
-
-					return returnValue;
+					return Object.keys(theObject);
 				},
 				createElement(theTag, theProperties, theClassList) {
 					const returnValue = document.createElement(theTag);
