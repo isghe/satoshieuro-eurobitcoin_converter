@@ -11,30 +11,30 @@ let gController = null;
 					}
 				},
 				keys: theObject => {
-					const ret = [];
+					const returnValue = [];
 					for (const aProperty in theObject) {
 						if (theObject.hasOwnProperty(aProperty)) { // eslint-disable-line no-prototype-builtins
-							ret.push(aProperty);
+							returnValue.push(aProperty);
 						}
 					}
 
-					return ret;
+					return returnValue;
 				},
 				createElement(theTag, theProperties, theClassList) {
-					const ret = document.createElement(theTag);
+					const returnValue = document.createElement(theTag);
 					if ((typeof undefined !== typeof theProperties) && (theProperties !== null)) {
 						this.keys(theProperties).forEach(theProperty => {
-							ret[theProperty] = theProperties[theProperty];
+							returnValue[theProperty] = theProperties[theProperty];
 						});
 					}
 
 					if ((typeof undefined !== typeof theClassList) && (theClassList !== null)) {
 						theClassList.forEach(theClass => {
-							ret.classList.add(theClass);
+							returnValue.classList.add(theClass);
 						});
 					}
 
-					return ret;
+					return returnValue;
 				}
 			};
 
