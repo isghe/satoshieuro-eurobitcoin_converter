@@ -3,12 +3,16 @@
 		"test": "xo"
 	},
 	"devDependencies": {
-		"xo": "^0.32.1"
+		"xo": "^0.58.0"
 	},
 	"xo": {
 		"esnext": true,
 		"space": false,
-		"rules": {},
+		"rules": {
+			"unicorn/no-array-for-each": 0,
+			"unicorn/prefer-module": 0,
+			"unicorn/no-this-assignment": 0
+		},
 		"semicolon": true,
 		"envs": [
 			"browser",

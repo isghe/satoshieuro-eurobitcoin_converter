@@ -10,7 +10,7 @@ let gController = null;
 						alert('assertion failed'); // eslint-disable-line no-alert
 					}
 				},
-				keys: theObject => {
+				keys(theObject) {
 					const returnValue = [];
 					for (const aProperty in theObject) {
 						if (theObject.hasOwnProperty(aProperty)) { // eslint-disable-line no-prototype-builtins
@@ -35,7 +35,7 @@ let gController = null;
 					}
 
 					return returnValue;
-				}
+				},
 			};
 
 			self.buttonDisable = function (theButton) {
@@ -49,7 +49,7 @@ let gController = null;
 			};
 
 			self.model = {
-				enabled: true
+				enabled: true,
 			};
 
 			self.show = function () {
@@ -60,12 +60,16 @@ let gController = null;
 				aDOMLink.append(aDOMHref);
 				const aAddress = '1ig1p1awfjS5bQxy2s33AD8sVspy4YFMD';
 				const aDOMBitcoin = self.util.createElement('div', {textContent: aAddress}, ['bitcoin']);
-				const aDOMQR = self.util.createElement('img', {src: aAddress + '.png', alt: aAddress, width: '200', height: '200'});
+				const aDOMQR = self.util.createElement('img', {
+					src: aAddress + '.png', alt: aAddress, width: '200', height: '200',
+				});
 				[aDOMLink, aDOMQR, aDOMBitcoin].forEach(theDOM => {
 					aDOMFooter.append(theDOM);
 				});
 
-				const aDOMInputSatoshiEuro = self.util.createElement('input', {type: 'text', value: '', maxlength: 30, size: 30}, ['input_text']);
+				const aDOMInputSatoshiEuro = self.util.createElement('input', {
+					type: 'text', value: '', maxlength: 30, size: 30,
+				}, ['input_text']);
 
 				const aDOMWrapResult = self.util.createElement('div', null, ['wrap-result']);
 				const aDOMLabelResult = self.util.createElement('span', {textContent: 'Result:'});
@@ -81,17 +85,17 @@ let gController = null;
 						if (self.model.enabled === true) {
 							self.model.enabled = false;
 							self.buttonDisable(aDOMButtonConvert);
-							aDOMValueResult.textContent = 100000000 / aDOMInputSatoshiEuro.value;
+							aDOMValueResult.textContent = 100_000_000 / aDOMInputSatoshiEuro.value;
 							setTimeout(() => {
 								self.buttonEnable(aDOMButtonConvert);
 								self.model.enabled = true;
 							}, 1000);
 						}
-					}
+					},
 				}, ['ig_button', 'normal']);
 
 				[
-					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter
+					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter,
 				].forEach(theDOM => {
 					aDOMContainer.append(theDOM);
 				});
