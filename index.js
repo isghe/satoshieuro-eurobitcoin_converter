@@ -65,10 +65,7 @@ let gController = null;
 				const aDOMLabelResult = self.util.createElement('span', {textContent: 'Result:'});
 				const aDOMValueResult = self.util.createElement('span', null, ['result']);
 
-				[aDOMLabelResult, aDOMValueResult].forEach(theDOM => {
-					aDOMWrapResult.append(theDOM);
-				});
-
+				aDOMWrapResult.append(aDOMLabelResult, aDOMValueResult);
 				const aDOMButtonConvert = self.util.createElement('div', {
 					textContent: 'Convert',
 					onclick(/* theEvent */) {
@@ -84,11 +81,7 @@ let gController = null;
 					},
 				}, ['ig_button', 'normal']);
 
-				[
-					aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter,
-				].forEach(theDOM => {
-					aDOMContainer.append(theDOM);
-				});
+				aDOMContainer.append(aDOMInputSatoshiEuro, aDOMButtonConvert, aDOMWrapResult, aDOMFooter);
 			};
 		};
 
